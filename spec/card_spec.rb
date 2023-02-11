@@ -9,17 +9,15 @@ end
 
 RSpec.describe Card do 
     before do # will run before each example in group
-        puts "this will be output before each example"
+        @card = Card.new('Ace', 'Spades') # use an instance variable to persist data
     end
 
     it 'has a rank' do
-        card = Card.new('Ace', 'Spades')
-        expect(card.rank).to eq('Ace')
+        expect(@card.rank).to eq('Ace')
     end
 
     it 'has a suit' do
-        card = Card.new("Queen", "Diamonds")
-        expect(card.suit).to eq("Diamonds")
+        expect(@card.suit).to eq("Spades")
     end
 end
 
