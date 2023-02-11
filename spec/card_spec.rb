@@ -5,12 +5,13 @@ class Card
         @rank = rank
         @suit = suit
     end
-    
 end
 
-
-
 RSpec.describe Card do 
+    before do # will run before each example in group
+        puts "this will be output before each example"
+    end
+
     it 'has a rank' do
         card = Card.new('Ace', 'Spades')
         expect(card.rank).to eq('Ace')
@@ -30,3 +31,6 @@ end
 # should describe behaviour not technical implementation
 # note how it reads like english
 # whatever is being evaluated is argument provided to expect method
+
+# hook: a piece of code that runs automatically at a certain time during test suites execution
+# instance variables: allow us to persist info that would otherwise be lost
