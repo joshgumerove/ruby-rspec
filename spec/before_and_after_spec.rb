@@ -28,8 +28,8 @@ RSpec.describe 'before and after hooks' do
             puts "INNER Before Context"
         end
     
-        after(:context) do 
-            puts "INNER After Context"
+        before(:example) do 
+            puts "INNER before example"
         end
 
         it 'does some more basic math' do 
