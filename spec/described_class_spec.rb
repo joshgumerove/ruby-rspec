@@ -1,11 +1,4 @@
-class Royal
-    attr_reader :name
-
-    def initialize(name)
-        @name = name
-    end
-
-end
+require_relative "../models/royal"
 
 RSpec.describe Royal do 
     subject { described_class.new('Josh') }
