@@ -13,6 +13,7 @@ RSpec.describe Royal do
 
     it 'represents a great person' do 
         expect(subject.name).to eq('Josh')
+        expect(louis.name).to eq("Louis")
     end
 end
 
