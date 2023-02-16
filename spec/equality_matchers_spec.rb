@@ -21,9 +21,25 @@ RSpec.describe 'equality matchers' do
         end
     end
 
+    describe 'equal and be matcher' do
+        let(:c) { [1, 2, 3] }
+        let(:d) { [1, 2, 3] }
+        let(:e) { c } 
+
+        it 'cares about object identity' do
+            expect(e).to be(c)
+            expect(e).to equal(c)
+            expect(c).to be(e)
+            expect(c).not_to be(d)
+        end
+    end
+
 end
 
 
 # more on Equality matchers
 # eql: more strict than eq (must be of the same class and value)
 # note the use of nested describe blocks
+# note the difference between equality and identity 
+# identity: when things are the same exact thing in memory
+# equality: when values are the same (but different in memory)
