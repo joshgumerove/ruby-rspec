@@ -14,5 +14,7 @@ RSpec.describe 'have_attributes matcher' do
             expect(subject).to have_attributes(name: 'Stone Cold Steve Austin')
             expect(subject).to have_attributes(finishing_move: 'Stunner')
         end
+
+        it {is_expected.to have_attributes(name: "Stone Cold Steve Austin", finishing_move: "Stunner")}
     end
 end
