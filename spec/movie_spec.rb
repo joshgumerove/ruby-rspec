@@ -10,11 +10,11 @@ class Actor
     end
 
     def act 
-        "I love you, baby"
+        'I love you, baby'
     end
 
     def fall_of_ladder
-        "Call my agent! No way!"
+        'Call my agent! No way!'
     end
 
     def light_on_fire
@@ -37,7 +37,22 @@ class Movie
     end
 end
 
-actor = Actor.new("Brad Pitt")
-movie = Movie.new(actor)
-puts movie.actor.name
-puts movie.start_shooting
+# actor = Actor.new('Brad Pitt')
+# movie = Movie.new(actor)
+# puts movie.actor.name
+# puts movie.start_shooting
+
+RSpec.describe Movie do
+    let(:stuntman) { double('Mr. Danger', ready?: true, act: 'Any string at all', fall_of_ladder: 'Sure lets do it', light_on_fire: false) } # note how this responds to needed methods
+    subject { described_class.new(stuntman) }
+
+    describe '#start_shooting method' do
+        it 'expects an actor to do 3 actions' do
+            expect(stuntman).to receive(:ready?)
+            expect(stuntman).to receive(:act)
+            expect(stuntman).to receive(:fall_of_ladder)
+            expect(stuntman).to receive(:light_on_fire)
+            subject.start_shooting
+        end
+    end
+end
